@@ -39,13 +39,13 @@ button {
   background-color: black;
 }
 
-input {
+form {
+  align-items: center;
+  text-align: center;
   width: 50vw;
   outline: none;
   margin: 10px;
   padding: 10px;
-  border: 3px solid white;
-  border-radius: 10px;
 }
 
 input:hover {

@@ -1,10 +1,41 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Button from '@material-ui/core/Button'
+import Link from 'next/link'
+import { useState } from 'react'
+import { makeStyles, createTheme } from '@material-ui/core/styles'
+import StyledButton from '../components/StyledButton'
 import styles from '../styles/Home.module.css'
-import Hook from '../components/Hook'
+import TextField from '@material-ui/core/TextField'
+
+const useStyles = makeStyles({
+  root: {
+    borderRadius: 3,
+    color: 'white',
+  },
+  form: {
+    marginTop: '20px',
+    marginBottom: '20px',
+  },
+  flexdisplay: {
+    display: 'flex',
+    justifyContent: 'center',
+  }
+});
+
+const theme = createTheme();
 
 export default function Home() {
+  const classes = useStyles();
+  const [question, setQuestion] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (question) {
+      console.log(question)
+    }
+  }
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,13 +47,18 @@ export default function Home() {
       <main className={styles.main}>
         <h1>Giotto Tarot</h1>
         <h2> enter your question to the cards: </h2>
-        <input type="text"/>
-        <Hook></Hook>
-        <div className={styles.auth}>
-          <p className={styles.authitem}>Login</p> 
-          <p className={styles.authitem}>||</p> 
-          <p className={styles.authitem}>Sign Up</p>
-        </div>
+        <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+          <TextField
+            onChange={(e) => setQuestion(e.target.value)}
+            fullWidth>
+          </TextField>
+          <StyledButton></StyledButton>
+          <div className={classes.flexdisplay}>
+              <p className={styles.authitem}>Log In</p> 
+              <p className={styles.authitem}>||</p> 
+              <p className={styles.authitem}>Sign Up</p>
+          </div>
+        </form>
       </main>
     </div>
   )

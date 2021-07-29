@@ -11,10 +11,14 @@ const useStyles = makeStyles({
     color: 'white',
     height: 48,
     padding: '0 30px',
+    margin: '10px',
+    '&:hover': {
+        background: '#c67700',
+    }
   },
 });
 
-export default function Hook() {
+export default function StyledButton() {
   const classes = useStyles();
-  return <Button className={classes.root}>Reveal My Fate</Button>;
+  return <Button variant="contained" className={classes.root} onClick={() => console.log('you clicked me')}>Reveal My Fate</Button>;
 }
