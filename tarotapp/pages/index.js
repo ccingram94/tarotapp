@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Button from '@material-ui/core/Button'
 import styles from '../styles/Home.module.css'
+import Hook from '../components/Hook'
 
 export default function Home() {
   return (
@@ -16,7 +17,12 @@ export default function Home() {
         <h1>Giotto Tarot</h1>
         <h2> enter your question to the cards: </h2>
         <input type="text"/>
-        <Button variant="contained" className={styles.prettybutton}>Reveal My Fate</Button>
+        <Hook></Hook>
+        <div className={styles.auth}>
+          <p className={styles.authitem}>Login</p> 
+          <p className={styles.authitem}>||</p> 
+          <p className={styles.authitem}>Sign Up</p>
+        </div>
       </main>
     </div>
   )
